@@ -1,0 +1,22 @@
+<div class="container" style="max-width: 600px; margin: 2rem auto;">
+  <h2 class="mat-h2" style="text-align: center; margin-bottom: 1.5rem;">Aplikacja monitorowania nawyków</h2>
+
+  <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 1rem;">
+    <input matInput placeholder="Dodaj Nwyk..." [(ngModel)]="newHabit" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addHabit()" style="width: 100%; margin-bottom: 1.5rem;">
+    Dodaj Nawyk
+  </button>
+
+  <mat-list>
+    <mat-list-item *ngFor="let habit of habits; let i = index" style="display: flex; justify-content: space-between; align-items: center;">
+      <mat-checkbox [(ngModel)]="habit.done">
+        <span [style.textDecoration]="habit.done ? 'line-through' : 'none'">{{ habit.name }}</span>
+      </mat-checkbox>
+      <button mat-icon-button color="warn" (click)="removeHabit(i)">
+        <mat-icon>Usuń</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>
